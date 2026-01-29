@@ -1,15 +1,11 @@
 import 'dart:developer';
 
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'package:animated_chat_record_button/animated_chat_record_button.dart';
 
 void main() {
-  runApp(DevicePreview(
-    enabled: true,
-    builder: (context) => const MyApp(),
-  ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
