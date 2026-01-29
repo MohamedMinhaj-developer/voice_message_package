@@ -464,50 +464,49 @@ class _AnimatedChatRecordButtonState extends State<AnimatedChatRecordButton>
                 ),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              top: 0,
-              right: 0,
-              child: InkWell(
-                onTap: widget.onPressCamera,
-                highlightColor: Colors.transparent,
-                splashColor: Colors.transparent,
-                child: SizedBox(
-                  width: 50,
-                  child: Icon(
-                    Icons.camera_alt_rounded,
-                    color: widget.textFormButtonsColor,
-                    size: 25,
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              top: 0,
-              right: 50,
-              child: InkWell(
-                highlightColor: Colors.transparent,
-                splashColor: Colors.transparent,
-                onTap: widget.onPressAttachment,
-                child: SizedBox(
-                  width: 30,
-                  child: RotatedBox(
-                    quarterTurns: 1,
-                    child: Icon(
-                      Icons.attachment,
-                      color: widget.textFormButtonsColor,
-                      size: 25,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Positioned(
+            //   bottom: 0,
+            //   top: 0,
+            //   right: 0,
+            //   child: InkWell(
+            //     onTap: widget.onPressCamera,
+            //     highlightColor: Colors.transparent,
+            //     splashColor: Colors.transparent,
+            //     child: SizedBox(
+            //       width: 50,
+            //       child: Icon(
+            //         Icons.camera_alt_rounded,
+            //         color: widget.textFormButtonsColor,
+            //         size: 25,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            // Positioned(
+            //   bottom: 0,
+            //   top: 0,
+            //   right: 50,
+            //   child: InkWell(
+            //     highlightColor: Colors.transparent,
+            //     splashColor: Colors.transparent,
+            //     onTap: widget.onPressAttachment,
+            //     child: SizedBox(
+            //       width: 30,
+            //       child: RotatedBox(
+            //         quarterTurns: 1,
+            //         child: Icon(
+            //           Icons.attachment,
+            //           color: widget.textFormButtonsColor,
+            //           size: 25,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             Positioned(
                 bottom: 0,
                 top: 0,
-                // right: 0,
-                left: 0,
+                right: 0,
                 child: SizedBox(
                   width: 50,
                   child: IconButton(
