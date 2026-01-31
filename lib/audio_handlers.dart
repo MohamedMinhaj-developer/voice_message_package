@@ -11,7 +11,7 @@ class AudioHandlers {
   static Future<String> _getRecordingPath() async {
     final directory = await getExternalStorageDirectory();
     final timestamp = DateTime.now().millisecondsSinceEpoch;
-    return '${directory?.path}/recording_$timestamp.aac';
+    return '${directory?.path}/recording_$timestamp.mp3';
   }
 
   /// used to start native recording at sample rate 44100

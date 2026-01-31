@@ -1,11 +1,14 @@
 import 'dart:developer';
+import 'package:voice_note_kit/voice_note_kit.dart';
 
+import 'package:animated_chat_record_button/test.dart';
+import 'package:animated_chat_record_button/voice_message_bubble.dart';
 import 'package:flutter/material.dart';
 
 import 'package:animated_chat_record_button/animated_chat_record_button.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -44,6 +47,7 @@ class _MyAppState extends State<MyApp> {
                 child: Column(
                   spacing: 5,
                   children: [
+                    VoiceMessageBubble(voiceUrl: filePathW ?? '', isMe: true),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Container(
@@ -73,6 +77,36 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ],
                 ),
+              ),
+            ),
+            Container(
+              constraints: const BoxConstraints(maxWidth: 300, maxHeight: 300),
+              child: AudioPlayerWidget(
+                // key: ValueKey('${widget.message.id}_audio'),
+                audioPath: filePathW,
+                audioType: AudioType.directFile,
+                playerStyle: PlayerStyle.style5,
+                textDirection: TextDirection.rtl,
+                // backgroundColor: widget.isMe
+                //     ? Theme.of(context)
+                //         .colorScheme
+                //         .primary
+                //         .withValues(alpha: 0.1)
+                //     : Colors.grey.shade100,
+                iconColor: Colors.white,
+                // iconColor: widget.isMe
+                //     ? Theme.of(context).colorScheme.primary
+                //     : Colors.grey.shade700,
+                progressBarBackgroundColor: Colors.white,
+                // progressBarBackgroundColor: widget.isMe
+                //     ? Theme.of(context).colorScheme.primary
+                //     : Colors.grey.shade400,
+                width: 250,
+                size: 40,
+                showSpeedControl: true,
+                showTimer: true,
+                autoLoad: true,
+                autoPlay: false,
               ),
             ),
             AnimatedChatRecordButton(

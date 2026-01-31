@@ -2,7 +2,7 @@ group = "com.example.animated_chat_record_button"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    ext.kotlin_version = "1.9.24"
+    ext.kotlin_version = "2.1.0"
     repositories {
         google()
         mavenCentral()
