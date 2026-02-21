@@ -171,7 +171,7 @@ class _AnimatedChatRecordButtonState extends State<AnimatedChatRecordButton>
   @override
   void initState() {
     super.initState();
-    requestPermissions();
+    // requestPermissions();
 
     _initializeControllers();
     _setupTextListener();
@@ -249,6 +249,31 @@ class _AnimatedChatRecordButtonState extends State<AnimatedChatRecordButton>
     final result = await _animationController.audioHandlers.stopRecording();
     widget.onRecordingEnd(result);
   }
+
+  Future<bool> _ensureMicPermission() async {
+  final status = await Permission.microphone.status;
+
+  if (status.isGranted) return true;
+
+  final result = await Permission.microphone.request();
+  if (result.isGranted) return true;
+
+  if (result.isPermanentlyDenied) {
+    await openAppSettings();
+  }
+
+  return false;
+}
+
+Future<void> _tryStartRecording() async {
+  final ok = await _ensureMicPermission();
+  if (!ok) {
+    widget.onStartRecording?.call(false);
+    return;
+  }
+
+  _handleRecordingStart(); // ✅ start only after permission granted
+}
 
   void _handleRecordingStart() {
     _animationController.startAnimation();
@@ -645,7 +670,8 @@ class _AnimatedChatRecordButtonState extends State<AnimatedChatRecordButton>
                   ),
                 )
               : GestureDetector(
-                  onPanDown: (_) => _handleRecordingStart(),
+                  // onPanDown: (_) => _handleRecordingStart(),
+                  onPanDown: (_) async => _tryStartRecording(),
                   onPanUpdate: state.isReachedLock
                       ? null
                       : (details) {
